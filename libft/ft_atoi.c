@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 16:12:39 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/09/20 12:53:49 by mramiro-         ###   ########.fr       */
+/*   Created: 2022/09/20 12:58:32 by mramiro-          #+#    #+#             */
+/*   Updated: 2022/09/20 13:08:48 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, char *src, size_t n)
+int	ft_atoi(const char *str)
 {
-	size_t	i;
+	int	i;
+	int	rest;
+	int	num;
 
 	i = 0;
-	while (i != n)
+	rest = 0;
+	num = 0;
+	while (str[i] != '\0')
 	{
-		dest[i] = src[i];
+		if (!(str[i] >= 9 && str[i] <= 13) && str[i] != 32)
+		{
+			if (str[i] == 45)
+				rest *= -1;
+			else if (str[i] >= 48 && str[i] <= 57)
+				num = num * 10 + str[i] - '0';
+			else if (str[i] != 43)
+				return (num * rest);
+		}
 		i++;
 	}
-	dest[i] = '\0';
-	return (n);
+	return (num * rest);
 }
-
-/*
-int main()
-{
-	int n;
-	n = 40;
-	char src[] = "Hola buenas tardes";
-	char dest[n];
-	ft_strlcpy(dest, src, n);
-	printf("%s", dest);
-}
-*/

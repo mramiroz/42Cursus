@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strchr.c                                           :+:      :+:    :+:   */
+/*   calloc.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 17:14:27 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/09/14 17:26:14 by mramiro-         ###   ########.fr       */
+/*   Created: 2022/09/20 13:22:44 by mramiro-          #+#    #+#             */
+/*   Updated: 2022/09/20 13:34:43 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-char	*ft_strchr(char *str, char ch)
+void	*ft_calloc(size_t num, size_t size)
 {
+	void	*s;
 	int		i;
-	int		n;
-	char	*dest;
 
 	i = 0;
-	n = 0;
-	while (str[i] != ch)
-	{	
-		i++;
-	}
-	n = i;
-	i = 0;
-	dest[n];
-	while (str[i] != '\0')
+	s = (int *)malloc (num * size);
+
+	while (((unsigned char *)s)[i] != '\0')
 	{
-		str[i];
+		((unsigned char *)s)[i] = 0;
 		i++;
-		n++;
 	}
+	return (0);
 }

@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 16:12:39 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/09/20 12:53:49 by mramiro-         ###   ########.fr       */
+/*   Created: 2022/09/20 12:14:26 by mramiro-          #+#    #+#             */
+/*   Updated: 2022/09/20 12:25:07 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, char *src, size_t n)
+void	*ft_memmove(void *str1, const void *str2, size_t n)
 {
 	size_t	i;
 
 	i = 0;
-	while (i != n)
+	if (n == 0)
+		return (0);
+	while (i < n)
 	{
-		dest[i] = src[i];
+		((unsigned char *)str2)[i] = ((unsigned char *)str1)[i];
 		i++;
 	}
-	dest[i] = '\0';
-	return (n);
+	return (str1);
 }
-
-/*
-int main()
-{
-	int n;
-	n = 40;
-	char src[] = "Hola buenas tardes";
-	char dest[n];
-	ft_strlcpy(dest, src, n);
-	printf("%s", dest);
-}
-*/
