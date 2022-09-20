@@ -6,7 +6,7 @@
 /*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:59:59 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/09/20 13:48:33 by mramiro-         ###   ########.fr       */
+/*   Updated: 2022/09/20 17:45:28 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,27 @@ void	*ft_memchr(const void *str, int c, size_t n);
 
 size_t	ft_strlcpy(char *dest, char *src, size_t n);
 int		ft_strlen(char *str);
-char	*ft_strchr(char *str, char ch);
 int		ft_strncmp(char *str1, char *str2, int i);
 char	*ft_strrchr(char *str, int c);
 size_t	ft_strlcat(char *dest, const char *src, size_t dstsize);
+char	*ft_strchr(const char *str, int c);
 int	ft_atoi(const char *str);
+void	ft_bzero(void *dst, size_t n);
+
 
 
 char	ft_toupper(int ch);
 char	ft_tolower(int ch);
 
 void	*ft_calloc(size_t num, size_t size);
+
+//Segunda parte
+void 	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
+
+
 
 
 

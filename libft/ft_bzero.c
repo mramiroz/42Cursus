@@ -1,44 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/16 13:14:38 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/09/16 14:04:02 by mramiro-         ###   ########.fr       */
+/*   Created: 2022/09/20 17:44:32 by mramiro-          #+#    #+#             */
+/*   Updated: 2022/09/20 17:49:40 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle)
+void	ft_bzero(void *dst, size_t n)
 {
-	int	i;
-	int	n;
-	int	j;
+	size_t	i;
 
 	i = 0;
-	n = 0;
-	j = 0;
-	while (needle[n])
-		n++;
-	while (haystack[i] != '\0')
+	while (i != n)
 	{
-		if (haystack[i] == needle[j])
-		{
-			while (haystack[i] == haystack[j])
-			{
-				i++;
-				j++;
-			}
-		}
+		((unsigned char *)dst)[i] = '\0';
 		i++;
 	}
 }
-
-int main()
-{
-	printf("%s", ft_strstr("Hola Buenas", "Buenas"));
-}
-
