@@ -6,25 +6,40 @@
 /*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 11:36:40 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/09/16 12:47:57 by mramiro-         ###   ########.fr       */
+/*   Updated: 2022/09/23 10:20:12 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+#include <stdio.h>
+#include <string.h>
 
 int	ft_strncmp(char *str1, char *str2, int n)
 {
 	int	i;
-	int	g;
 
+	if (n == 0)
+		return (0);
 	i = 0;
-	g = 0;
-	while (str1[i] == str2[i] && i == n)
+	while (i != (n - 1) && str1[i] == str2[i])
 	{
-		if (str1[i] > str2[i])
-			g++;
-		else if (str1[i] < str2[i])
-			g--;
 		i++;
 	}
-	return (g);
+	if (str1[i] == str2[i])
+		return (0);
+	else if (str1[i] > str2[i])
+		return (str1[i] - str2[i]);
+	else if (str1[i] < str2[i])
+		return (str1[i] - str2[i]);
+	return (0);
 }
+
+/*
+int main()
+{
+	char str[] = {"test\200"};
+	char str2[] = {"test\0"};
+	printf("%i\n", ft_strncmp(str, str2, 6));
+	printf("%i", strncmp(str, str2, 6));
+}
+*/
