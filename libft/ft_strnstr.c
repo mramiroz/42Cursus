@@ -6,7 +6,7 @@
 /*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 11:52:16 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/09/23 17:45:00 by mramiro-         ###   ########.fr       */
+/*   Updated: 2022/09/23 18:49:42 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ char	*ft_strnstr(char *str, char *to_find, size_t len)
 	}
 	return (0);
 }
-
+/*
 int main ()
 {
 	printf("%s", ft_strnstr("lorem ipsum dolor sit amet", "dolor", 15));
 }
+*/
