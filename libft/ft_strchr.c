@@ -6,26 +6,24 @@
 /*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:07:42 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/09/20 17:04:14 by mramiro-         ###   ########.fr       */
+/*   Updated: 2022/09/23 15:42:49 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *str, int ch)
 {
-	int		i;
+	char	*s;
 
-	i = 0;
-	while (str[i] != '\0')
+	s = (char *)str;
+	while (*s != (unsigned char)ch)
 	{
-		if (str[i] == c)
+		if (*s == '\0')
 		{
-			return ((char *)str + 1);
+			return (0);
 		}
-		i++;
+		s++;
 	}
-	if (c == '\0')
-		return (0);
-	return (0);
+	return (s);
 }

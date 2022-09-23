@@ -1,41 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/16 11:36:40 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/09/23 10:44:18 by mramiro-         ###   ########.fr       */
+/*   Created: 2022/09/23 11:52:16 by mramiro-          #+#    #+#             */
+/*   Updated: 2022/09/23 17:45:00 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
-#include <string.h>
 
-int	ft_strncmp(char *str1, char *str2, size_t n)
-{
-	unsigned int	i;
+typedef unsigned long size_t;
 
-	if (n == 0)
-		return (0);
+char	*ft_strnstr(char *str, char *to_find, size_t len)
+{	
+	size_t	i;
+	int		n;
+
 	i = 0;
-	while (i != (n - 1) && str1[i] == str2[i])
+	n = 0;
+	if (ft_strlen(to_find) == '\0')
 	{
+		return (str);
+	}
+	while (str[i] != '\0' && i <= len)
+	{
+		while (str[i + n] == to_find[n])
+		{
+			n++;
+			if (to_find[n] == '\0')
+				return (str + i);
+		}
+		n = 0;
 		i++;
 	}
-	if (str1[i] != str2[i])
-		return ((unsigned char)str1[i] - (unsigned char)str2[i]);
 	return (0);
 }
 
-/*
-int main()
+int main ()
 {
-	char str[] = {"test\200"};
-	char str2[] = {"test\0"};
-	printf("%i\n", ft_strncmp(str, str2, 6));
-	printf("%i", strncmp(str, str2, 6));
+	printf("%s", ft_strnstr("lorem ipsum dolor sit amet", "dolor", 15));
 }
-*/

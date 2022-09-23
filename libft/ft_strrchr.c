@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/16 11:36:40 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/09/23 10:44:18 by mramiro-         ###   ########.fr       */
+/*   Created: 2022/09/23 13:49:04 by mramiro-          #+#    #+#             */
+/*   Updated: 2022/09/23 14:16:10 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
-int	ft_strncmp(char *str1, char *str2, size_t n)
+char	*ft_strrchr(const char *str, int ch)
 {
-	unsigned int	i;
+	int		i;
+	char	*s;
 
-	if (n == 0)
-		return (0);
-	i = 0;
-	while (i != (n - 1) && str1[i] == str2[i])
+	i = ft_strlen(str);
+	s = (char *)str + i;
+	while (i >= 0)
 	{
-		i++;
+		if (*s == (unsigned char)ch)
+		{
+			return (s);
+		}
+	s--;
+	i--;
 	}
-	if (str1[i] != str2[i])
-		return ((unsigned char)str1[i] - (unsigned char)str2[i]);
 	return (0);
 }
-
-/*
-int main()
-{
-	char str[] = {"test\200"};
-	char str2[] = {"test\0"};
-	printf("%i\n", ft_strncmp(str, str2, 6));
-	printf("%i", strncmp(str, str2, 6));
-}
-*/
