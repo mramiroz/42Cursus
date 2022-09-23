@@ -6,7 +6,7 @@
 /*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:59:59 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/09/23 17:26:25 by mramiro-         ###   ########.fr       */
+/*   Updated: 2022/09/23 18:46:59 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int		ft_strncmp(char *str1, char *str2, size_t i);
 size_t	ft_strlcat(char *dest, const char *src, size_t dstsize);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strnstr(char *str, char *to_find, size_t len);
+char	*ft_strrchr(const char *str, int ch);
 int	ft_atoi(const char *str);
 void	ft_bzero(void *dst, size_t n);
 
