@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 12:58:32 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/09/20 13:08:48 by mramiro-         ###   ########.fr       */
+/*   Created: 2022/09/22 09:41:46 by marvin            #+#    #+#             */
+/*   Updated: 2022/09/22 09:41:46 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
 
-int	ft_atoi(const char *str)
+int	ft_atoi(char *str)
 {
 	int	i;
-	int	rest;
 	int	num;
+	int	rest;
 
 	i = 0;
-	rest = 0;
+	rest = 1;
 	num = 0;
 	while (str[i] != '\0')
 	{
@@ -36,3 +36,10 @@ int	ft_atoi(const char *str)
 	}
 	return (num * rest);
 }
+
+/*
+int main()
+{
+	printf("%d", ft_atoi("   --\n-+--+1234ab567"));
+}
+*/
