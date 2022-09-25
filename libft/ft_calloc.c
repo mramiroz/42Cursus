@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   calloc.c                                           :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 13:22:44 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/09/20 13:34:43 by mramiro-         ###   ########.fr       */
+/*   Updated: 2022/09/25 23:38:52 by mrarmiro-        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,11 @@
 
 void	*ft_calloc(size_t num, size_t size)
 {
-	void	*s;
-	int		i;
+	void *s;
 
-	i = 0;
-	s = (int *)malloc (num * size);
-
-	while (((unsigned char *)s)[i] != '\0')
-	{
-		((unsigned char *)s)[i] = 0;
-		i++;
-	}
-	return (0);
+	s = malloc(num*size);
+	if (NULL == s)
+		return(0);
+	ft_bzero(s, size*num);
+	return(s);
 }
