@@ -11,7 +11,7 @@ ${LIB}: ${OBJS}
 	ar rc ${LIB} ${OBJS}
 	ranlib ${LIB}
 .c.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o} -I ${HDRS}
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 	
 re:	fclean	all
 
