@@ -6,7 +6,7 @@
 /*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:59:59 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/09/25 23:53:37 by mrarmiro-        ###   ########.fr       */
+/*   Updated: 2022/09/26 09:36:23 by mrarmiro-        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 char *ft_substr(char const *s, unsigned int start, size_t len);
+char *ft_strjoin(char const *s1, char const *s2);
 
 
 #endif
