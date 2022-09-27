@@ -6,14 +6,11 @@
 /*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 11:52:16 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/09/23 18:49:42 by mramiro-         ###   ########.fr       */
+/*   Updated: 2022/09/27 13:40:51 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-
-typedef unsigned long size_t;
 
 char	*ft_strnstr(char *str, char *to_find, size_t len)
 {	
@@ -26,9 +23,9 @@ char	*ft_strnstr(char *str, char *to_find, size_t len)
 	{
 		return (str);
 	}
-	while (str[i] != '\0' && i <= len)
+	while (str[i] != '\0' && i < len)
 	{
-		while (str[i + n] == to_find[n])
+		while (str[i + n] == to_find[n] && (i + n) < len)
 		{
 			n++;
 			if (to_find[n] == '\0')
