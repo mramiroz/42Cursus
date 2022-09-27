@@ -6,7 +6,7 @@
 /*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:59:59 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/09/26 09:36:23 by mrarmiro-        ###   ########.fr       */
+/*   Updated: 2022/09/27 07:03:55 by mrarmiro-        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ char	ft_toupper(int ch);
 char	ft_tolower(int ch);
 
 void	*ft_calloc(size_t num, size_t size);
+char *ft_strdup(const char *s);
+
 
 //Segunda parte
 void 	ft_putchar_fd(char c, int fd);
