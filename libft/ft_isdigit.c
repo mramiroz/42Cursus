@@ -6,7 +6,7 @@
 /*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 13:09:38 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/09/14 16:27:55 by mramiro-         ###   ########.fr       */
+/*   Updated: 2022/10/01 18:43:08 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,7 @@
 
 int	ft_isdigit(char c)
 {
-	if (c >= '0' && c <= '9')
+	if (c >= 48 && c <= 57)
 		return (1);
-	else
-		return (0);
+	return (0);
 }
-
-/*
-int main(){
-    printf("%d", ft_isdigit('d'));
-}
-*/

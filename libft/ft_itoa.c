@@ -11,29 +11,54 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
+#include <stdio.h>
 
-char *ft_itoa(int value, char *str, int base)
+int	cuenta_digitos(int i)
 {
-    int i;
+	int	n;
 
-    i = 0;
-    while (str[i] != '\0')
-    {
-        if (value < 0)
-	    {
-            str[i] = '-';
-            value = -value;
-            i++;
-	    }
-        while (value >= base)
-        {
-            str[i] = value / base;
-            i++;
-        }
-        if (value < base)
-            str[i] = value + 48;
-        i++;
-        str[i] = '\0';
-    }
-    return (str);
+	n = 0;
+	if (i < 0)
+	{
+		i = -i;
+		n++;
+	}
+	while (i >= 10)
+	{
+		i = i / 10;
+		n++;
+	}
+	if (i < 10)
+		n++;
+	return (n);
+}
+
+char	*ft_itoa(int value)
+{
+	int		i;
+	char	*str;
+	int		size;
+
+	i = 0;
+	size = cuenta_digitos(value);
+	if (value == -2147483648)
+		return (ft_strdup("-2147483648"));
+	str = (char *)malloc(sizeof(char) * (size + 1));
+	if (!str)
+		return (NULL);
+	str[size] = '\0';
+	if (value == 0)
+		str[i] = '0';
+	if (value < 0)
+	{
+		str[i++] = '-';
+		value = -value;
+	}
+	while (value > 0)
+	{
+		str[--size] = value % 10 + '0';
+		value = value / 10;
+	}
+	return (str);
 }

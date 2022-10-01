@@ -6,7 +6,7 @@
 /*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 18:04:18 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/09/27 10:09:16 by mramiro-         ###   ########.fr       */
+/*   Updated: 2022/10/01 18:29:20 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ char	*ft_strdup(const char *s)
 	i = 0;
 	size = ft_strlen(s);
 	dest = (char *)malloc(sizeof(char) * (size + 1));
+	if (!dest)
+		return (NULL);
 	while (s[i] != '\0')
 	{
 		dest[i] = s[i];

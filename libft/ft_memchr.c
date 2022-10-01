@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
+/*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 13:38:06 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/09/30 08:51:11 by mrarmiro-        ###   ########.fr       */
+/*   Updated: 2022/10/01 13:59:25 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,22 @@
 
 void	*ft_memchr(const void *str, int c, size_t n)
 {
-	size_t 		i;
-	int 		t;
-	char		ch;
-	const char *str1;
-	
-	ch = (char)c;
-	i = 0;
-	n = 0;
-	str1 = (const char *)str;
+	size_t	i;
+	char	ch;
+	char	*str1;
 
-	while ((str1[i] != ch || str1[i] != '\0') && i < n)
+	ch = (unsigned char)c;
+	str1 = (void *)str;
+	i = 0;
+	if (n == 0)
+		return (0);
+	if (str1[i] == ch)
+		return (str1);
+	while ((str1[i] != ch || str1[i]) && i < n)
 	{
+		if (str1[i] == ch)
+			return (str1 + i);
 		i++;
-		if (str1[i] == '\0')
-			return (0);
-	}
-	--i;
-	while (str1[i] != '\0')
-	{
-		i++;
-		t++;
 	}
 	return (0);
 }
