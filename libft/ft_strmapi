@@ -1,0 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/30 09:57:52 by mrarmiro-         #+#    #+#             */
+/*   Updated: 2022/09/30 09:57:52 by mrarmiro-        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+    char *str;
+
+    str = malloc(sizeof(char)*s);
+    str = ft_striteri(str, f);
+    return(str);
+}
