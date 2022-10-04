@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 16:20:59 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/10/01 16:53:29 by mramiro-         ###   ########.fr       */
+/*   Updated: 2022/10/04 10:13:08 by mrarmiro-        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 char	**ft_split(char const *s, char c)
 {
-	char **dest;
+	char **d;
 	int i;
 	int n;
 	int t;
@@ -23,17 +23,19 @@ char	**ft_split(char const *s, char c)
 	t = 0;
 	i = 0;
 	n = 0;
-	dest = malloc(sizeof(char *) * ft_strlen(s));
+	d = malloc(sizeof(char *) * ft_strlen(s));
+	if (!d)
+		return (NULL);
 	while (s[t])
 	{
-		while (s[t] != c && s[t])
+		while (ft_strchr(s, c) == 0)
 		{
-			dest[i][n] = s[t];
-			n++;
 			t++;
+			i++;
 		}
-		dest[i][n] = '\0';
-		i++;
+		ft_strlcpy(d[n], (char *)s, (t + 1));
+		n++;
 	}
-	return (dest);
+	d[n][i] = '\0';
+	return (d);
 }

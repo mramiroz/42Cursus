@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:59:59 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/10/01 16:49:17 by mramiro-         ###   ########.fr       */
+/*   Updated: 2022/10/03 21:23:54 by mrarmiro-        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 #define LIBFT_H
 
 typedef unsigned long size_t;
+
+typedef struct      s_list
+{
+    void            *content;
+    struct s_list   *next;
+}                   t_list;   
+
 
 int	ft_isalnum(int c);
 int	ft_isalpha(int c);
@@ -61,6 +68,11 @@ char *ft_strtrim(char const *s1, char const *set);
 char *ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	**ft_split(char const *s, char c);
 
+//Bonus
+t_list  *ft_lstnew(void *content);
+int     ft_lstsize(t_list *lst);
+void    ft_lstadd_front(t_list **lst, t_list *new);
+t_list *ft_lstlast(t_list *lst);
 
 
 
