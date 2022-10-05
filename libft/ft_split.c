@@ -6,36 +6,61 @@
 /*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 16:20:59 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/10/04 10:13:08 by mrarmiro-        ###   ########.fr       */
+/*   Updated: 2022/10/04 17:26:58 by mrarmiro-        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
+#include <stdio.h>
 
+int cpalabras(char const *str, char c)
+{
+	int i;
+	int n;
+	
+	i = 0;
+	n = 0;
+	while (str[i])
+	{
+		if (str[i] == c)
+			n++;
+		i++;
+	}
+	return (n);
+}
+
+int cletras(char const *str, int n)
+{
+	int i;
+
+	i = 0;
+	while (i < n && str[i])
+	{
+		i++;
+	}
+	return (i);
+}
 char	**ft_split(char const *s, char c)
 {
 	char **d;
-	int i;
+	int pal;
 	int n;
-	int t;
-
-	t = 0;
-	i = 0;
+	int i;
+	
+	pal = cpalabras(s, c);
+	d = ft_calloc(sizeof(char *), pal);
 	n = 0;
-	d = malloc(sizeof(char *) * ft_strlen(s));
-	if (!d)
-		return (NULL);
-	while (s[t])
+	i = 0;
+	while (d[n])
 	{
-		while (ft_strchr(s, c) == 0)
+		while (s[i] != c)
 		{
-			t++;
+			if (ft_strchr(s, c) == 0)
+				ft_strlcpy(d[n], (char *)s, cletras(s, pal));
 			i++;
 		}
-		ft_strlcpy(d[n], (char *)s, (t + 1));
 		n++;
 	}
-	d[n][i] = '\0';
 	return (d);
 }

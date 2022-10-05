@@ -6,7 +6,7 @@
 /*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:59:59 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/10/03 21:23:54 by mrarmiro-        ###   ########.fr       */
+/*   Updated: 2022/10/04 19:39:08 by mrarmiro-        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ t_list  *ft_lstnew(void *content);
 int     ft_lstsize(t_list *lst);
 void    ft_lstadd_front(t_list **lst, t_list *new);
 t_list *ft_lstlast(t_list *lst);
+void ft_lstadd_back(t_list **lst, t_list *new);
 
 
 
