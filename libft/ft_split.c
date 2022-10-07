@@ -6,7 +6,7 @@
 /*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 16:20:59 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/10/04 17:26:58 by mrarmiro-        ###   ########.fr       */
+/*   Updated: 2022/10/06 20:19:41 by mrarmiro-        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int cpalabras(char const *str, char c)
 	int n;
 	
 	i = 0;
-	n = 0;
+	n = 1;
 	while (str[i])
 	{
 		if (str[i] == c)
@@ -30,37 +30,41 @@ int cpalabras(char const *str, char c)
 	return (n);
 }
 
-int cletras(char const *str, int n)
+int cletras(char const *str, char c)
 {
 	int i;
 
 	i = 0;
-	while (i < n && str[i])
+	while (c != str[i] && str[i])
 	{
 		i++;
 	}
 	return (i);
 }
-char	**ft_split(char const *s, char c)
+
+char    **ft_split(char const *s, char c)
 {
-	char **d;
-	int pal;
-	int n;
-	int i;
-	
-	pal = cpalabras(s, c);
-	d = ft_calloc(sizeof(char *), pal);
-	n = 0;
-	i = 0;
-	while (d[n])
-	{
-		while (s[i] != c)
-		{
-			if (ft_strchr(s, c) == 0)
-				ft_strlcpy(d[n], (char *)s, cletras(s, pal));
-			i++;
-		}
-		n++;
-	}
-	return (d);
+    char **d;
+    int pal;
+    int size;
+    int i;
+    int n;
+    
+    pal = cpalabras(s, c);
+    d = ft_calloc(sizeof(char *), pal + 1);
+    size = 0;
+    i = 0;
+    n = 0;
+    if (!s || !c || !d)
+        return (NULL);
+    while (d && n < pal)
+    {
+        *d = ft_calloc(sizeof(char), (cletras(s + i, c) + 1));
+        size = cletras(s + i, c) + 1;
+        ft_strlcpy(*d, (char *)s + i, size);
+        i = size + i;
+        d++;
+        n++;
+    }
+    return (d);
 }
