@@ -20,44 +20,44 @@ int inicio(const char *s, const char *set)
 	i = 0;
 	while (s[i])
 	{
-		if(ft_strchr(set, s[i]) == 0)
-			break;
+		if (ft_strchr(set, s[i]) == 0)
+			break ;
 		i++;
 	}
 	return (i);
 }
 
-int final(const char *s, const char *set)
+int	final(const char *s, const char *set)
 {
-	int i;
-	int len;
+	int	i;
+	int	len;
 
 	len = ft_strlen(s);
 	i = 0;
 	while (i < len)
 	{
-		if(ft_strchr(set, s[len - i - 1]) == 0)
-			break;
+		if (ft_strchr(set, s[len - i - 1]) == 0)
+			break ;
 		i++;
 	}
 	return (len - i);
 }
 
 
-char *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char *s;
+	char	*s;
 	int 	i;
 	int		n;
 
+	if (!s1)
+		return (0);
 	i = inicio(s1, set);
 	n = final(s1, set);
-	if (s1 == NULL)
-		return	(NULL);
 	if (set == NULL)
 		return (ft_strdup(s1));
 	if (i >= n)
-		return(ft_strdup(""));
+		return (ft_strdup(""));
 	s = malloc(sizeof(char *) * (n - i + 1));
 	if (!s)
 		return (NULL);

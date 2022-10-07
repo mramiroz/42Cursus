@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
+/*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 16:20:59 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/10/06 20:19:41 by mrarmiro-        ###   ########.fr       */
+/*   Updated: 2022/10/07 18:32:12 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,37 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int cpalabras(char const *str, char c)
+#include <stdlib.h>
+#include <stdio.h>
+
+int	cpalabras(char const *str, char c)
 {
 	int i;
 	int n;
-	
+
 	i = 0;
 	n = 1;
 	while (str[i])
 	{
-		if (str[i] == c)
-			n++;
+		while (str[i] == c)
+		{
+			i++;
+			if ((str[i] != c && (str[i - 1] == c || str[i + 1] == c)))
+			{
+				n++;
+				i++;
+			}
+		}
 		i++;
 	}
+	if (!n)
+		n = 1;
 	return (n);
 }
 
-int cletras(char const *str, char c)
+int	cletras(char const *str, char c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (c != str[i] && str[i])
@@ -42,29 +54,49 @@ int cletras(char const *str, char c)
 	return (i);
 }
 
-char    **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-    char **d;
-    int pal;
-    int size;
-    int i;
-    int n;
-    
+	char	**d;
+	int		pal;
+	int		size;
+	int		i;
+	int		n;
+
+    if (!s || !c )
+        return (NULL);
     pal = cpalabras(s, c);
     d = ft_calloc(sizeof(char *), pal + 1);
     size = 0;
     i = 0;
     n = 0;
-    if (!s || !c || !d)
+    if (!d)
         return (NULL);
-    while (d && n < pal)
-    {
-        *d = ft_calloc(sizeof(char), (cletras(s + i, c) + 1));
+    while (n < pal)
+	{
+		if (s[i] == c)
+		{
+			while(s[i] == c)
+				i++;	
+		}
         size = cletras(s + i, c) + 1;
-        ft_strlcpy(*d, (char *)s + i, size);
+        d[n] = ft_calloc(sizeof(char), (size + 1));
+		ft_strlcpy(d[n], (char *)s + i, size);
         i = size + i;
-        d++;
         n++;
-    }
-    return (d);
+	}
+    d[n] = 0;
+	return (d);
 }
+
+/*
+int main()
+{
+	char **p;
+	p = ft_split("  HOLA PACO    MARIA ", ' ');
+	printf("%s\n", p[0]);
+	printf("%s\n", p[1]);
+	printf("%s\n", p[2]);
+	printf("%s\n", p[3]);
+	return 0;
+}
+*/

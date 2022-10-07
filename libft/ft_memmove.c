@@ -6,7 +6,7 @@
 /*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 12:14:26 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/10/01 13:08:09 by mramiro-         ###   ########.fr       */
+/*   Updated: 2022/10/07 13:46:25 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ void	*ft_memmove(void *str1, const void *str2, size_t n)
 	size_t			i;
 	unsigned char	*sstr1;
 	unsigned char	*sstr2;
-
+	
+	if (!str1 || !str2)
+		return (0);
 	i = 0;
 	sstr1 = (unsigned char *)str1;
 	sstr2 = (unsigned char *)str2;

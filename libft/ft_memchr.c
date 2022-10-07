@@ -6,7 +6,7 @@
 /*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 13:38:06 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/10/01 13:59:25 by mramiro-         ###   ########.fr       */
+/*   Updated: 2022/10/07 13:49:46 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	*ft_memchr(const void *str, int c, size_t n)
 {
-	size_t	i;
-	char	ch;
-	char	*str1;
+	size_t			i;
+	unsigned char	ch;
+	char			*str1;
 
 	ch = (unsigned char)c;
 	str1 = (void *)str;

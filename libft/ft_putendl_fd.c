@@ -6,7 +6,7 @@
 /*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 17:27:15 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/09/20 17:30:10 by mramiro-         ###   ########.fr       */
+/*   Updated: 2022/10/07 11:05:59 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	ft_putendl_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
+	if (!s || !fd)
+		return ;
 	while (s[i] != '\0')
 	{
 		write(fd, &s[i], 1);
@@ -25,3 +27,4 @@ void	ft_putendl_fd(char *s, int fd)
 	}
 	write(fd, "\n", 1);
 }
+

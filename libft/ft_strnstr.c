@@ -6,7 +6,7 @@
 /*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 11:52:16 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/09/27 13:40:51 by mramiro-         ###   ########.fr       */
+/*   Updated: 2022/10/07 18:36:40 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strnstr(char *str, char *to_find, size_t len)
 	size_t	i;
 	int		n;
 
+	if (!len)
+		return (0);
 	i = 0;
 	n = 0;
 	if (ft_strlen(to_find) == '\0')
