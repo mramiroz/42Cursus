@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 16:21:26 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/09/16 13:59:35 by mramiro-         ###   ########.fr       */
+/*   Updated: 2022/10/10 16:55:16 by mrarmiro-        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 char	ft_tolower(int ch)
 {
 	if (ch >= 'A' && ch <= 'Z')
-		ch = ch + 32;
+		return (ch + 32);
 	else
 		return (ch);
-	return (ch);
 }
