@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 16:20:59 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/10/07 18:32:12 by mramiro-         ###   ########.fr       */
+/*   Updated: 2022/10/10 16:48:31 by mrarmiro-        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,29 +17,25 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int	cpalabras(char const *str, char c)
+int	cpalabas(const char *str, char c)
 {
-	int i;
-	int n;
+	int n_palabras;
+	int flag;
 
-	i = 0;
-	n = 1;
-	while (str[i])
+	n_palabras = 0;
+	flag = 0;
+	while (*str)
 	{
-		while (str[i] == c)
+		if (*str != c && flag == 0)
 		{
-			i++;
-			if ((str[i] != c && (str[i - 1] == c || str[i + 1] == c)))
-			{
-				n++;
-				i++;
-			}
+			flag = 1;
+			n_palabras++;
 		}
-		i++;
+		else if (*str == c)
+			flag = 0;
+		str++;
 	}
-	if (!n)
-		n = 1;
-	return (n);
+	return (n_palabras);
 }
 
 int	cletras(char const *str, char c)
@@ -64,7 +60,7 @@ char	**ft_split(char const *s, char c)
 
     if (!s || !c )
         return (NULL);
-    pal = cpalabras(s, c);
+    pal = cpalabas(s, c);
     d = ft_calloc(sizeof(char *), pal + 1);
     size = 0;
     i = 0;
@@ -79,6 +75,7 @@ char	**ft_split(char const *s, char c)
 				i++;	
 		}
         size = cletras(s + i, c) + 1;
+		free(d[n]);
         d[n] = ft_calloc(sizeof(char), (size + 1));
 		ft_strlcpy(d[n], (char *)s + i, size);
         i = size + i;
