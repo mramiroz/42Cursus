@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
+/*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 11:52:16 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/10/11 18:25:09 by mrarmiro-        ###   ########.fr       */
+/*   Updated: 2022/10/12 12:22:46 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ char	*ft_strnstr(char *str, char *to_find, size_t len)
 {	
 	size_t	i;
 	int		n;
-	int find_len;
-
+	int		find_len;
+	
+	if (!str && !len)
+		return (0);
 	find_len = ft_strlen(to_find);
 	if (find_len == 0 || str == to_find)
 		return ((char *)str);

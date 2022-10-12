@@ -13,9 +13,9 @@
 #include "libft.h"
 #include <stdlib.h>
 
-int inicio(const char *s, const char *set)
+int	inicio(const char *s, const char *set)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i])
@@ -47,16 +47,16 @@ int	final(const char *s, const char *set)
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*s;
-	int 	i;
+	int		i;
 	int		n;
 
-	if (!s1)
+	if (!s1 || !set)
 		return (0);
 	i = inicio(s1, set);
 	n = final(s1, set);
 	if (set == NULL)
 		return (ft_strdup(s1));
-	if (i >= n)
+	if (i > n)
 		return (ft_strdup(""));
 	s = malloc(sizeof(char *) * (n - i + 1));
 	if (!s)

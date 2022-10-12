@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
+/*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 16:20:59 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/10/10 16:48:31 by mrarmiro-        ###   ########.fr       */
+/*   Updated: 2022/10/12 12:38:55 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,35 +53,29 @@ int	cletras(char const *str, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**d;
-	int		pal;
 	int		size;
 	int		i;
 	int		n;
 
-    if (!s || !c )
-        return (NULL);
-    pal = cpalabas(s, c);
-    d = ft_calloc(sizeof(char *), pal + 1);
-    size = 0;
-    i = 0;
-    n = 0;
-    if (!d)
-        return (NULL);
-    while (n < pal)
+	if (!s)
+		return (0);
+	d = ft_calloc(sizeof(char *), cpalabas(s, c) + 1);
+	i = 0;
+	n = 0;
+	if (!d)
+		return (NULL);
+	while (n < cpalabas(s, c))
 	{
 		if (s[i] == c)
-		{
-			while(s[i] == c)
-				i++;	
-		}
-        size = cletras(s + i, c) + 1;
+			while (s[i] == c)
+				i++;
+		size = cletras(s + i, c) + 1;
 		free(d[n]);
-        d[n] = ft_calloc(sizeof(char), (size + 1));
+		d[n] = ft_calloc(sizeof(char), (size + 1));
 		ft_strlcpy(d[n], (char *)s + i, size);
-        i = size + i;
-        n++;
+		i = size + i;
+		n++;
 	}
-    d[n] = 0;
 	return (d);
 }
 

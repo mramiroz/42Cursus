@@ -6,7 +6,7 @@
 /*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 12:49:41 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/10/07 13:51:33 by mramiro-         ###   ########.fr       */
+/*   Updated: 2022/10/12 15:10:48 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t dstsize)
 	size_t	n;
 
 	if (dstsize == 0)
-		return (0);
+		return (ft_strlen(src));
 	n = 0;
 	len_dest = ft_strlen(dest);
 	len_src = ft_strlen(src);
