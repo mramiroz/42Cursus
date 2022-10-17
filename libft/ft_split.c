@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 16:20:59 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/10/12 12:38:55 by mramiro-         ###   ########.fr       */
+/*   Updated: 2022/10/17 16:48:52 by mrarmiro-        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,7 @@ char	**ft_split(char const *s, char c)
 			while (s[i] == c)
 				i++;
 		size = cletras(s + i, c) + 1;
-		free(d[n]);
-		d[n] = ft_calloc(sizeof(char), (size + 1));
+		d[n] = ft_calloc(sizeof(char), size);
 		ft_strlcpy(d[n], (char *)s + i, size);
 		i = size + i;
 		n++;
