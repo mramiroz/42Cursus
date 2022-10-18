@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 11:36:40 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/10/01 18:35:19 by mramiro-         ###   ########.fr       */
+/*   Updated: 2022/10/18 16:52:01 by mrarmiro-        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int	ft_strncmp(char *str1, char *str2, size_t n)
+int	ft_strncmp(const char *str1, const char *str2, size_t n)
 {
 	unsigned int	i;
 
