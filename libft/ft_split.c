@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
+/*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 16:20:59 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/10/17 16:48:52 by mrarmiro-        ###   ########.fr       */
+/*   Updated: 2022/10/18 12:04:25 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 
 int	cpalabas(const char *str, char c)
 {
-	int n_palabras;
-	int flag;
+	int	n_palabras;
+	int	flag;
 
 	n_palabras = 0;
 	flag = 0;

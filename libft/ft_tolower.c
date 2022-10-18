@@ -6,16 +6,15 @@
 /*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 16:21:26 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/10/12 12:24:09 by mramiro-         ###   ########.fr       */
+/*   Updated: 2022/10/18 11:03:22 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	ft_tolower(int ch)
+int	ft_tolower(int ch)
 {
 	if (ch >= 65 && ch <= 90)
 		return (ch + 32);
-	else
-		return (ch);
+	return (ch);
 }
