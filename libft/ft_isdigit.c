@@ -6,15 +6,15 @@
 /*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 13:09:38 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/10/01 18:43:08 by mramiro-         ###   ########.fr       */
+/*   Updated: 2022/10/18 11:50:41 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(char c)
+int	ft_isdigit(int c)
 {
 	if (c >= 48 && c <= 57)
-		return (1);
+		return (c);
 	return (0);
 }

@@ -12,56 +12,40 @@
 
 #include "libft.h"
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
-int	inicio(const char *s, const char *set)
+size_t	trim(char const *c, char set)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
-	{
-		if (ft_strchr(set, s[i]) == 0)
-			break ;
-		i++;
-	}
-	return (i);
+	while (*c)
+		if (*c++ == set)
+			return (1);
+	return (0);
 }
-
-int	final(const char *s, const char *set)
-{
-	int	i;
-	int	len;
-
-	len = ft_strlen(s);
-	i = 0;
-	while (i < len)
-	{
-		if (ft_strchr(set, s[len - i - 1]) == 0)
-			break ;
-		i++;
-	}
-	return (len - i);
-}
-
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
+	size_t	start;
+	size_t	end;
+	size_t	len;
+	size_t	i;
 	char	*s;
-	int		i;
-	int		n;
 
 	if (!s1 || !set)
 		return (0);
-	i = inicio(s1, set);
-	n = final(s1, set);
-	if (set == NULL)
-		return (ft_strdup(s1));
-	if (i > n)
-		return (ft_strdup(""));
-	s = malloc(sizeof(char *) * (n - i + 1));
+	start = 0;
+	end = ft_strlen(s1);
+	i = 0;
+	while (trim(set, s1[start]) == 1)
+		start++;
+	while (start < end - 1 && trim(set, s1[end - 1]) == 1)
+		end--;
+	len = end - start;
+	s = ft_calloc(sizeof(char), len + 1);
 	if (!s)
-		return (NULL);
-	ft_strlcpy(s, (char *)s1 + i, n - i + 1);
+		return (0);
+	while (i < len)
+		s[i++] = s1[start++];
+	s[i] = '\0';
 	return (s);
-
-}	
+}
